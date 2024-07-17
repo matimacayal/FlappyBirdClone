@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://ddgbi1p0pn5cj"]
+
+[ext_resource type="Script" path="res://scenes/columns.gd" id="1_5vqib"]
+[ext_resource type="PackedScene" uid="uid://c1uaypq7p51kl" path="res://scenes/killzone.tscn" id="1_c3pr0"]
+[ext_resource type="Texture2D" uid="uid://den4sx3n8oo4t" path="res://assets/pipe.png" id="1_x84ak"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1fif3"]
+size = Vector2(66, 554)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kt480"]
+size = Vector2(66, 554)
+
+[node name="Columns" type="Node2D"]
+script = ExtResource("1_5vqib")
+
+[node name="Lower Column" parent="." instance=ExtResource("1_c3pr0")]
+
+[node name="Sprite2D" type="Sprite2D" parent="Lower Column"]
+position = Vector2(0, 400)
+texture = ExtResource("1_x84ak")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lower Column"]
+position = Vector2(0, 400)
+shape = SubResource("RectangleShape2D_1fif3")
+
+[node name="UpperColumn" parent="." instance=ExtResource("1_c3pr0")]
+
+[node name="Sprite2D" type="Sprite2D" parent="UpperColumn"]
+position = Vector2(0, -400)
+texture = ExtResource("1_x84ak")
+flip_v = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UpperColumn"]
+position = Vector2(0, -400)
+shape = SubResource("RectangleShape2D_kt480")
